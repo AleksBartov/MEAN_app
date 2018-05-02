@@ -8,7 +8,9 @@ module.exports = function (app) {
 
     app
         .route('/users/:id')
-        .get(users.read);
+        .get(users.read)
+        .put(users.update)
+        .delete(users.delete);
 
     app.param('id', users.userById);
         

@@ -5,6 +5,7 @@ const config = require('./config'),
     compress = require('compression'),
     methodOverride = require('method-override'),
     session = require('express-session'),
+    flash = require('connect-flash'),
     passport = require('passport');
 
 module.exports = () => {
@@ -28,6 +29,7 @@ module.exports = () => {
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
 
+    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
 
